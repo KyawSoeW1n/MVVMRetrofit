@@ -1,6 +1,6 @@
-package com.kuriotetsuya.mvvmretrofit;
+package com.kuriotetsuya.mvvmretrofit.network;
 
-import android.arch.lifecycle.LiveData;
+import com.kuriotetsuya.mvvmretrofit.response.PostResponse;
 
 import java.util.List;
 

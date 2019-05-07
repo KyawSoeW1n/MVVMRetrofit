@@ -1,4 +1,4 @@
-package com.kuriotetsuya.mvvmretrofit;
+package com.kuriotetsuya.mvvmretrofit.response;
 
 import com.google.gson.annotations.SerializedName;
 

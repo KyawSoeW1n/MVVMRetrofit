@@ -1,4 +1,4 @@
-package com.kuriotetsuya.mvvmretrofit;
+package com.kuriotetsuya.mvvmretrofit.activity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -9,7 +9,11 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
+
+import com.kuriotetsuya.mvvmretrofit.response.PostResponse;
+import com.kuriotetsuya.mvvmretrofit.R;
+import com.kuriotetsuya.mvvmretrofit.adapter.RecyclerAdapter;
+import com.kuriotetsuya.mvvmretrofit.presentation.MainViewModel;
 
 import java.util.List;
 

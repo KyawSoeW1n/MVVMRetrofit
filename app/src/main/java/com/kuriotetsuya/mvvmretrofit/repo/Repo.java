@@ -1,11 +1,8 @@
-package com.kuriotetsuya.mvvmretrofit;
+package com.kuriotetsuya.mvvmretrofit.repo;
 
-import android.app.Activity;
-import android.app.Application;
-import android.arch.lifecycle.LiveData;
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
+import com.kuriotetsuya.mvvmretrofit.presentation.MainViewModel;
+import com.kuriotetsuya.mvvmretrofit.response.PostResponse;
+import com.kuriotetsuya.mvvmretrofit.network.APIService;
 
 import java.util.List;
 
@@ -44,7 +41,6 @@ public class Repo {
             public void onResponse(Call<List<PostResponse>> call, Response<List<PostResponse>> response) {
                 responseList = response.body();
                 mainViewModel.posts.postValue(responseList);
-                Log.i("RESPOSE SIZE", "" + responseList.size());
             }
 
             @Override
