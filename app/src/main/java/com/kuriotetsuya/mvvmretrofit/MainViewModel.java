@@ -14,10 +14,10 @@ import java.util.List;
 
 public class MainViewModel extends ViewModel {
     Repo repo;
-    static MutableLiveData<List<PostResponse>> posts = new MutableLiveData<>();
+    MutableLiveData<List<PostResponse>> posts = new MutableLiveData<>();
 
     public MainViewModel() {
-        repo = new Repo();
+        repo = new Repo(this);
         repo.getPosts();
     }
 

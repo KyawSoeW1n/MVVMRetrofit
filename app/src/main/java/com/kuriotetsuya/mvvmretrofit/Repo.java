@@ -19,13 +19,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Repo {
     private Retrofit retrofit;
+    MainViewModel mainViewModel;
     private APIService apiService;
     OkHttpClient client;
     HttpLoggingInterceptor interceptor;
     List<PostResponse> responseList;
-    LiveData<List<PostResponse>> responseLiveData;
 
-    public Repo() {
+    public Repo(MainViewModel mainViewModel) {
+        this.mainViewModel=mainViewModel;
         interceptor = new HttpLoggingInterceptor();
         client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
         retrofit = new Retrofit.Builder()
@@ -42,7 +43,7 @@ public class Repo {
             @Override
             public void onResponse(Call<List<PostResponse>> call, Response<List<PostResponse>> response) {
                 responseList = response.body();
-                MainViewModel.posts.postValue(responseList);
+                mainViewModel.posts.postValue(responseList);
                 Log.i("RESPOSE SIZE", "" + responseList.size());
             }
 
