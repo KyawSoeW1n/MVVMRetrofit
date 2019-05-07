@@ -1,5 +1,7 @@
 package com.kuriotetsuya.mvvmretrofit;
 
+import android.app.Activity;
+import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.util.Log;
@@ -31,13 +33,16 @@ public class Repo {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         apiService = retrofit.create(APIService.class);
+
+
     }
 
-    public List<PostResponse> getPosts() {
+    public void getPosts() {
         apiService.getPosts().enqueue(new Callback<List<PostResponse>>() {
             @Override
             public void onResponse(Call<List<PostResponse>> call, Response<List<PostResponse>> response) {
                 responseList = response.body();
+                MainViewModel.posts.postValue(responseList);
                 Log.i("RESPOSE SIZE", "" + responseList.size());
             }
 
@@ -45,8 +50,5 @@ public class Repo {
             public void onFailure(Call<List<PostResponse>> call, Throwable t) {
             }
         });
-        return responseList;
     }
-
-
 }

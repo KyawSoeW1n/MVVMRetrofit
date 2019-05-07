@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         rc.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         rc.setAdapter(recyclerAdapter);
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        mainViewModel.getPosts();
         mainViewModel.posts.observe(this, new Observer<List<PostResponse>>() {
             @Override
             public void onChanged(@Nullable List<PostResponse> postResponses) {

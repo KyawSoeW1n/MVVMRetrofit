@@ -23,8 +23,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder myHolder, int i) {
-        myHolder.tvTitle.setText(list.get(i).getTitle());
-        myHolder.tvBody.setText(list.get(i).getBody());
+        myHolder.tvTitle.setText("Title \t" + list.get(i).getTitle());
+        myHolder.tvBody.setText("BODY \t" + list.get(i).getBody());
     }
 
     @Override
